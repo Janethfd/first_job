@@ -41,6 +41,11 @@ def login(request):
     form = AuthenticationForm()
     return render(request, "login.html", {"form": form})
 
+def password_reset(request):
+    pass
+
+
+
 # def sign_up(request):
 #     if request.method == "POST":
 #         form = SignUpForm(request.POST)
@@ -74,5 +79,3 @@ def login(request):
 #     return render(request, "login.html", {"form": form})
 
 
-def password_reset(request):
-    pass

@@ -40,6 +40,14 @@ def detail(request, pk):
 
     return render(request, "detail.html", {"question": question, "options": options})
 
+def result(request, pk):
+    question = get_object_or_404(Question, pk=pk)
+    options = Option.objects.filter(question=question)
+
+    return render(request, 'results.html', {"question": question, "options": options})
+
+
+
 # @login_required
 # def detail(request, pk):
 #     question = get_object_or_404(Question, pk=pk)
@@ -70,8 +78,3 @@ def detail(request, pk):
 #     return render(request, "detail.html", {"question":question, "options":options})
 
 
-def result(request, pk):
-    question = get_object_or_404(Question, pk=pk)
-    options = Option.objects.filter(question=question)
-
-    return render(request, 'results.html', {"question": question, "options": options})
